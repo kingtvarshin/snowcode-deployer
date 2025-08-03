@@ -91,6 +91,47 @@ snowflake-vscode-extension/
 
 ---
 
+## 🚀 How to Deploy and Install the Extension
+
+1. **Build the Extension**
+   ```sh
+   npm install
+   npm run compile
+   ```
+
+2. **Test Locally (Development Mode)**
+   - Press `F5` in VS Code.
+   - This launches a new Extension Development Host window for testing.
+
+3. **Package the Extension**
+   - Install VSCE if you haven't:
+     ```sh
+     npm install -g vsce
+     ```
+   - Package your extension:
+     ```sh
+     vsce package
+     ```
+   - This creates a `.vsix` file in your project folder.
+
+4. **Install the Packaged Extension**
+   - In VS Code, open the Command Palette (`Ctrl+Shift+P`).
+   - Type `Extensions: Install from VSIX...`
+   - Select your `.vsix` file to install.
+
+5. **(Optional) Publish to the Marketplace**
+   - Follow [VS Code publishing docs](https://code.visualstudio.com/api/working-with-extensions/publishing-extension) to publish your extension for others to use.
+
+---
+
+**Summary:**  
+- Build and test with `F5`.
+- Package with `vsce package`.
+- Install with `Extensions: Install from VSIX...`.
+- (Optional)
+
+---
+
 ## 🛠️ Development Steps & Reference
 
 ### 1. Create a feature branch

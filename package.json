@@ -3,6 +3,10 @@
   "displayName": "Snowflake DataOps Assistant",
   "description": "VS Code extension to automate and manage Snowflake infrastructure using Terraform, GitHub Actions, and Slack.",
   "version": "0.1.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kingtvarshin/snowcode-deployer.git"
+  },
   "engines": {
     "vscode": "^1.80.0"
   },
