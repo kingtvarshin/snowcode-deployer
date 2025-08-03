@@ -40,13 +40,12 @@ export function activate(context: vscode.ExtensionContext) {
         }
 
         if (!envFilePath) {
-            // Try default location if not set
             envFilePath = path.join(vscode.workspace.workspaceFolders?.[0]?.uri.fsPath || '', '.env');
             dotenv.config({ path: envFilePath });
         }
 
-        // Show Quick Pick for Snowflake resources
-        const resources = ['Database', 'Warehouse', 'Schema'];
+        // Dynamically get resources from templates
+        const resources = getAvailableResources();
         const selected = await vscode.window.showQuickPick(resources, {
             placeHolder: 'Select a Snowflake resource to manage'
         });
@@ -103,4 +102,13 @@ function checkWorkspaceSetup(): string[] {
         missing.push('SLACK_WEBHOOK_URL in .env');
     }
     return missing;
+}
+
+function getAvailableResources(): string[] {
+    const templatesDir = path.join(__dirname, '..', 'templates');
+    if (!fs.existsSync(templatesDir)) return [];
+    return fs.readdirSync(templatesDir)
+        .filter(file => file.endsWith('.tf'))
+        .map(file => path.basename(file, '.tf'))
+        .map(name => name.charAt(0).toUpperCase() + name.slice(1)); // Capitalize for display
 }
