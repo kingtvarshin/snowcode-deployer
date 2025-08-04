@@ -11,5 +11,5 @@ export function generateTerraform(resource: string, params: Record<string, strin
         });
         return template;
     }
-    return '';
+    return `Template for resource '${resource}' not found at path '${templatePath}'.`;
 }
