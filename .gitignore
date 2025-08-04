@@ -139,3 +139,10 @@ dist
 # OS junk
 .DS_Store
 Thumbs.db
+
+# terraform
+*.tfstate
+*.tfstate.backup
+*.tfvars
+.terraform.lock.hcl
+.terraform/
