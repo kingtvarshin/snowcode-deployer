@@ -16,7 +16,7 @@ This is a Visual Studio Code extension that helps Data Engineers automate and ma
 
 ## 📁 Project Structure
 
-\`\`\`
+```
 snowflake-vscode-extension/
 ├── src/
 │   ├── extension.ts                  # Main VS Code extension logic
@@ -30,7 +30,7 @@ snowflake-vscode-extension/
 ├── package.json                      # Project metadata and dependencies
 ├── tsconfig.json                     # TypeScript configuration
 └── README.md                         # Project documentation
-\`\`\`
+```
 
 ## 📦 What does each file do?
 
