@@ -46,6 +46,10 @@ export function activate(context: vscode.ExtensionContext) {
 
         // Dynamically get resources from templates
         const resources = getAvailableResources();
+        if (!resources || resources.length === 0) {
+            vscode.window.showErrorMessage('No templates found. Please ensure the templates directory exists and contains template files.');
+            return;
+        }
         const selected = await vscode.window.showQuickPick(resources, {
             placeHolder: 'Select a Snowflake resource to manage'
         });
