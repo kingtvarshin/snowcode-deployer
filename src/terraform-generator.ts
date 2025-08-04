@@ -9,7 +9,7 @@ export function generateTerraform(resource: string, params: Record<string, strin
         Object.entries(params).forEach(([key, value]) => {
             template = template.replace(new RegExp(`\\$\\{${key}\\}`, 'g'), value);
         });
-        return template;
+        return { success: true, template };
     }
-    return '';
+    return { success: false, error: `Template for resource '${resource}' not found at path '${templatePath}'.` };
 }
